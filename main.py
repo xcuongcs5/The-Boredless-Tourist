@@ -43,3 +43,21 @@ add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical sit
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
 print(attractions)
+
+# Finding the Best Places to Go
+def find_attractions(destination, interests):
+    destination_index = get_destination_index(destination)
+    attractions_in_city = attractions[destination_index]
+    attraction_with_interest = []
+    for i in attractions_in_city:
+        possible_attraction = i
+        attraction_tag = i[1]
+        
+        for interest in interests:
+            if interest in attraction_tag:
+                attraction_with_interest.append(possible_attraction[0])
+        
+    return attraction_with_interest
+
+la_arts = find_attractions("Los Angeles, USA", ['art'])
+print(la_arts)
